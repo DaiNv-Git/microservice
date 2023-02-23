@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="edu-service" />
+        <module name="import-data" />
+        <module name="eureka-server" />
+        <module name="auth" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="11" />
+      <module name="auth" target="11" />
+      <module name="edu-service" target="11" />
+      <module name="edu-soft" target="11" />
+      <module name="eureka-server" target="11" />
+      <module name="import-data" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

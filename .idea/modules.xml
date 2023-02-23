@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/edu-soft/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/edu-soft/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edu-soft/auth/auth.iml" filepath="$PROJECT_DIR$/edu-soft/auth/auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/be-source.iml" filepath="$PROJECT_DIR$/.idea/be-source.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edu-soft/edu-service/edu-service.iml" filepath="$PROJECT_DIR$/edu-soft/edu-service/edu-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edu-soft/edu-soft.iml" filepath="$PROJECT_DIR$/edu-soft/edu-soft.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edu-soft/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/edu-soft/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/edu-soft/import-data/import-data.iml" filepath="$PROJECT_DIR$/edu-soft/import-data/import-data.iml" />
+    </modules>
+  </component>
+</project>

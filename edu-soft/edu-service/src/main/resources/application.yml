@@ -1,0 +1,52 @@
+server:
+  port: 8083
+  compression:
+    enabled: true
+
+spring:
+  application:
+    name: EDU-SERVICE
+  datasource:
+    url: jdbc:mysql://localhost:3306/edu_soft
+    username: root
+    password: dai223
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL55Dialect
+        format_sql: true
+    show-sql: true
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: khoale1602@gmail.com
+    password: ntumychcumxbjhnc
+    port: 587
+    protocol: smtp
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  freemarker:
+    template-loader-path: classpath:/templates
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+feign:
+  autoconfiguration:
+    jackson:
+      enabled: true
+  compression:
+    response:
+      enabled: true
+      useGzipDecoder: true

@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    refresh:
+      enabled: true
+    gateway:
+      routes:
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+            - SaveSession
+        - id: import-service
+          uri: lb://IMPORT-SERVICE
+          predicates:
+            - Path=/import/**
+          filters:
+            - StripPrefix=1
+            - SaveSession
+        - id: edu-service
+          uri: lb://EDU-SERVICE
+          predicates:
+            - Path=/edu/**
+          filters:
+            - StripPrefix=1
+            - SaveSession
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allow-credentials: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true

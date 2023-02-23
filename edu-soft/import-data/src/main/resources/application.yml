@@ -1,0 +1,36 @@
+server:
+  port: 8081
+  compression:
+    enabled: true
+
+spring:
+  application:
+    name: IMPORT-SERVICE
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/edu_soft
+#    username: root
+#    password: 123456
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL55Dialect
+#        format_sql: true
+#    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+feign:
+  autoconfiguration:
+    jackson:
+      enabled: true
+  compression:
+    response:
+      enabled: true
+      useGzipDecoder: true
