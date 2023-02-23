@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class GradeServiceImpl implements GradeService {
@@ -36,6 +37,11 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public List<Grade> save(List<GradeDTO> gradeDTOS) throws NotFoundException {
+        List<String> userNames = gradeDTOS.stream().map(i->i.getUsername()).collect(Collectors.toList());
+           var isExit = authClients.getUserByUsernames(userNames);
+        if(isExit.isEmpty()){
+            throw new IllegalStateException("Username does not exist");
+        }
         if (CollectionUtils.isEmpty(gradeDTOS)) {
             throw new IllegalStateException("List grade can not be null");
         }
@@ -68,6 +74,9 @@ public class GradeServiceImpl implements GradeService {
     public List<Grade> importExcel(MultipartFile file) throws IOException {
         List<GradeDTO> data = getDataImport(file);
         List<Grade> grades = dtoMapper.toGrade(data);
+        List<String> userNames = grades.stream().map(i->i.getUsername()).collect(Collectors.toList());
+        var isExit = authClients.getUserByUsernames(userNames);
+        if(isExit.size() != userNames.size()) throw new IllegalStateException("Have username does not exist");
         return gradeRepository.saveAll(grades);
     }
 
